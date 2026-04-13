@@ -1,0 +1,23 @@
+import java.util.ArrayList;
+
+public class AttendanceRecord {
+    private String date;
+    private ArrayList<Member> attendees;
+
+    public AttendanceRecord(String date) {
+        this.date = date;
+        attendees = new ArrayList<>();
+    }
+
+    public void markPresent(Member member) {
+        attendees.add(member);
+        member.incrementAttendance();
+    }
+
+    public void displayAttendees() {
+        System.out.println("Attendance for " + date + ":");
+        for (int i = 0; i < attendees.size(); i++) {
+            System.out.println("- " + attendees.get(i).getName());
+        }
+    }
+}
