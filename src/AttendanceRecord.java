@@ -11,6 +11,7 @@ public class AttendanceRecord {
 
     public void markPresent(Member member) {
         attendees.add(member);
+        //automatically updates attendance
         member.incrementAttendance();
     }
 
