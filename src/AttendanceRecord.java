@@ -9,10 +9,18 @@ public class AttendanceRecord {
         attendees = new ArrayList<>();
     }
 
+    public String getDate() {
+        return date;
+    }
+
     public void markPresent(Member member) {
         attendees.add(member);
         //automatically updates attendance
         member.incrementAttendance();
+    }
+
+    public ArrayList<Member> getAttendees() {
+        return attendees;
     }
 
     public void displayAttendees() {
