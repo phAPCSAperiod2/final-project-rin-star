@@ -2,39 +2,45 @@ import java.util.ArrayList;
 
 public class Club {
     private ArrayList<Member> members;
-    private ArrayList<AttendanceRecord> records;
+    private ArrayList<AttendanceRecord> meetings;
 
     public Club() {
-        members = new ArrayList<>();
-        records = new ArrayList<>();
+        members = new ArrayList<Member>();
+        meetings = new ArrayList<AttendanceRecord>();
     }
 
     public void addMember(String name) {
         members.add(new Member(name));
     }
 
-    public void addAttendanceRecord(String date) {
-        records.add(new AttendanceRecord(date));
-    }
-
     public ArrayList<Member> getMembers() {
         return members;
     }
 
-    public ArrayList<AttendanceRecord> getRecords() {
-        return records;
+    public ArrayList<AttendanceRecord> getMeetings() {
+        return meetings;
+    }
+
+    public void addMeeting(String date) {
+        meetings.add(new AttendanceRecord(date));
     }
 
     public void displayMembers() {
-        System.out.println("Club Members:");
         for (int i = 0; i < members.size(); i++) {
-            System.out.println("- " + members.get(i));
+            System.out.println((i + 1) + ". " + members.get(i).getName());
         }
     }
 
-    public void displayAllAttendance() {
-        for (int i = 0; i < records.size(); i++) {
-            records.get(i).displayAttendees();
+    public void displayStats() {
+        System.out.println("Attendance Stats:");
+        for (int i = 0; i < members.size(); i++) {
+            System.out.println(members.get(i));
+        }
+    }
+
+    public void displayMeetings() {
+        for (int i = 0; i < meetings.size(); i++) {
+            System.out.println((i + 1) + ". " + meetings.get(i).getDate());
         }
     }
 }

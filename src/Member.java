@@ -4,7 +4,7 @@ public class Member {
 
     public Member(String name) {
         this.name = name;
-        this.attendanceCount = 0;
+        attendanceCount = 0;
     }
 
     public String getName() {
@@ -15,11 +15,17 @@ public class Member {
         return attendanceCount;
     }
 
-    public void incrementAttendance() {
+    public void addAttendance() {
         attendanceCount++;
     }
 
+    public void removeAttendance() {
+        if (attendanceCount > 0) {
+            attendanceCount--;
+        }
+    }
+
     public String toString() {
-        return name + " (Attendance: " + attendanceCount + ")";
+        return name + " - Attendance: " + attendanceCount;
     }
 }

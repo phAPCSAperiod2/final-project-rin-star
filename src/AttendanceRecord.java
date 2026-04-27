@@ -6,27 +6,36 @@ public class AttendanceRecord {
 
     public AttendanceRecord(String date) {
         this.date = date;
-        attendees = new ArrayList<>();
+        attendees = new ArrayList<Member>();
     }
 
     public String getDate() {
         return date;
     }
 
-    public void markPresent(Member member) {
-        attendees.add(member);
-        //automatically updates attendance
-        member.incrementAttendance();
-    }
-
     public ArrayList<Member> getAttendees() {
         return attendees;
     }
 
-    public void displayAttendees() {
-        System.out.println("Attendance for " + date + ":");
+    public void markPresent(Member member) {
+        attendees.add(member);
+        member.addAttendance();
+    }
+
+    public void removeMember(Member member) {
         for (int i = 0; i < attendees.size(); i++) {
-            System.out.println("- " + attendees.get(i).getName());
+            if (attendees.get(i).getName().equals(member.getName())) {
+                attendees.remove(i);
+                member.removeAttendance();
+                i--;
+            }
+        }
+    }
+
+    public void displayAttendance() {
+        System.out.println("Meeting Date: " + date);
+        for (int i = 0; i < attendees.size(); i++) {
+            System.out.println((i + 1) + ". " + attendees.get(i).getName());
         }
     }
 }
