@@ -1,6 +1,17 @@
 import java.util.Scanner;
 
+/**
+ * Main class for the Club Attendance Tracker program.
+ * Handles user interaction through a menu system and connects all classes.
+ */
 public class Main {
+
+    /**
+     * Runs the program and displays the menu for user interaction.
+     * Allows users to add members, record attendance, view stats, and edit records.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Club club = new Club();
@@ -19,12 +30,18 @@ public class Main {
             input.nextLine();
 
             if (choice == 1) {
+                /**
+                 * Adds a new member to the club.
+                 */
                 System.out.print("Enter member name: ");
                 String name = input.nextLine();
                 club.addMember(name);
             }
 
             else if (choice == 2) {
+                /**
+                 * Creates a new meeting and records attendance for all members.
+                 */
                 System.out.print("Enter meeting date: ");
                 String date = input.nextLine();
                 club.addMeeting(date);
@@ -45,10 +62,17 @@ public class Main {
             }
 
             else if (choice == 3) {
+                /**
+                 * Displays attendance statistics for all members.
+                 */
                 club.displayStats();
             }
 
             else if (choice == 4) {
+                /**
+                 * Allows user to edit a previous attendance record.
+                 * Removes a member from a selected meeting.
+                 */
                 club.displayMeetings();
                 System.out.print("Choose meeting number: ");
                 int meetNum = input.nextInt();
