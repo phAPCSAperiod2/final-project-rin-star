@@ -19,13 +19,13 @@ public class Main {
         int choice = 0;
 
         while (choice != 5) {
-            System.out.println("Club Attendance Tracker");
-            System.out.println("1. Add Member");
-            System.out.println("2. Record Meeting Attendance");
-            System.out.println("3. View Stats");
-            System.out.println("4. Edit Attendance Record");
-            System.out.println("5. Exit");
-            System.out.print("Choice: ");
+            System.out.println("club attendance tracker");
+            System.out.println("1. add member");
+            System.out.println("2. record meeting attendance");
+            System.out.println("3. view stats");
+            System.out.println("4. edit attendance record");
+            System.out.println("5. exit");
+            System.out.print("choice: ");
             choice = input.nextInt();
             input.nextLine();
 
@@ -33,7 +33,7 @@ public class Main {
                 /**
                  * Adds a new member to the club.
                  */
-                System.out.print("Enter member name: ");
+                System.out.print("enter member name: ");
                 String name = input.nextLine();
                 club.addMember(name);
             }
@@ -42,7 +42,7 @@ public class Main {
                 /**
                  * Creates a new meeting and records attendance for all members.
                  */
-                System.out.print("Enter meeting date: ");
+                System.out.print("enter meeting date: ");
                 String date = input.nextLine();
                 club.addMeeting(date);
 
@@ -74,7 +74,7 @@ public class Main {
                  * Removes a member from a selected meeting.
                  */
                 club.displayMeetings();
-                System.out.print("Choose meeting number: ");
+                System.out.print("choose meeting number: ");
                 int meetNum = input.nextInt();
                 input.nextLine();
 
@@ -83,12 +83,12 @@ public class Main {
 
                 meeting.displayAttendance();
 
-                System.out.print("Enter member name to remove: ");
+                System.out.print("enter member name to remove: ");
                 String removeName = input.nextLine();
 
                 for (int i = 0; i < club.getMembers().size(); i++) {
-                    if (club.getMembers().get(i).getName()
-                        .equalsIgnoreCase(removeName)) {
+                    if (club.getMembers().get(i).getName().toLowerCase()
+                        .equals(removeName.toLowerCase())) {
 
                         meeting.removeMember(club.getMembers().get(i));
                     }
