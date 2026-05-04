@@ -1,189 +1,63 @@
-[![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=23543270)
-# AP Computer Science A – Final Project
-## Software & Systems Development Capstone
+# Club Attendance Tracker
 
-Welcome to your **Final Project repository**.
-
-This repository will hold:
-- Your complete Java project
-- Your project journal and planning artifacts
-- Your final, working software product
-
-This is not just an assignment — it is a **capstone software project**.
+## What This Software Does
+This program allows users to track attendance for club meetings. Users can add members, record attendance for each meeting, view attendance statistics, and edit attendance records. The program helps organize participation and makes it easy to see which members are most active.
 
 ---
 
-## 📌 Project Overview (Read Carefully)
-
-In this project, you will:
-- Design and build a **real piece of software**
-- Solve **one real problem** for **one clearly defined user**
-- Work using **agile development**
-- Show evidence of **professional software practices**
-- Use AI responsibly as a planning and support tool
-
-You will leave this course with something you can confidently say:
-
-> “I built this software.”
+## Who It’s For
+This software is designed for middle or high school students who are part of clubs or organizations. It solves the problem of keeping track of attendance across multiple meetings and helps identify active members.
 
 ---
 
-## 🔁 Required Workflow (How You Must Work)
-
-### ✅ Daily GitHub Commits (Required)
-You are expected to:
-- Make **at least one meaningful commit every class day**
-- Write **descriptive commit messages** that explain:
-  - What you changed
-  - Why you changed it
-  - What goal it supports
-
-✅ Good commit messages:
-- `Sprint 1: Created Player class and tested constructor`
-- `Sprint 2: Implemented 2D map and verified movement logic`
-
-🚫 Poor commit messages:
-- `updates`
-- `stuff`
-- `final version`
-
-Your commit history is **evidence of your thinking and progress**.
+## How to Run the Program
+1. Open the project in a Java IDE (such as IntelliJ, Eclipse, or VS Code)
+2. Make sure all `.java` files are in the same folder
+3. Run the `Main.java` file
+4. Follow the menu prompts in the console to use the program
 
 ---
 
-## 🔁 Agile Development & Sprints
+## Technical Overview
 
-You will complete **4 sprints**.  
-Each sprint includes:
-- Planning
-- Building
-- Testing
-- Feedback and reflection
+### Main Classes:
+- **Main** → Handles user input and menu system
+- **Club** → Stores members and attendance records
+- **Member** → Represents a club member and tracks attendance count
+- **AttendanceRecord** → Stores attendance for a single meeting
 
-Each sprint ends with:
-- A sprint grade
-- A sprint reflection
-- Feedback exchanged with peers
+### Key Data Structures:
+- `ArrayList<Member>` → stores all club members
+- `ArrayList<AttendanceRecord>` → stores all meetings
+- `ArrayList<Member>` (inside AttendanceRecord) → stores attendees for each meeting
 
-🚫 You may NOT complete multiple sprints at once.  
-✅ Each sprint grade is **final**.
-
----
-
-## 🧪 Testing Expectations
-
-Testing is required every sprint.
-
-✅ Testing may include:
-- Running the program with different inputs
-- Print‑based testing
-- Driver program testing
-- Verifying logic and edge cases
-
-You should be able to explain:
-- What you tested
-- How you tested it
-- What you discovered or fixed
+### Program Logic:
+- Users interact through a menu system in `Main`
+- Members are added to the club and stored in a list
+- Each meeting creates an `AttendanceRecord`
+- Attendance is recorded by adding members to a meeting
+- Attendance counts are updated when members are marked present
+- Users can edit records by removing members from meetings
 
 ---
 
-## 🗂️ Required Project Components
+## Class Diagram
+- Member → stores name and attendance count  
+- AttendanceRecord → stores meeting date and list of attendees  
+- Club → stores all members and meetings  
+- Main → controls program flow  
 
-Your final project must include:
-
-- ✅ Multiple interacting Java classes
-- ✅ Encapsulation (`private` fields, appropriate getters/setters)
-- ✅ Arrays and/or ArrayLists
-- ✅ A purposeful **2D array**
-- ✅ A working driver program (`main`)
-- ✅ A class diagram matching your final code
-- ✅ Clear documentation
-- ✅ A program that runs and works
-
-Inheritance and interfaces are optional but encouraged.
+UML Diagram: https://drive.google.com/file/d/1u8aqq_Ht5RiR0I52d0C6EC_wWO1kCr1Y/view?usp=sharing
 
 ---
 
-## 🤖 Using AI (Allowed, With Responsibility)
-
-You may use AI to:
-- Organize ideas
-- Plan sprints
-- Debug code
-- Suggest design improvements
-
-You must:
-- Document how you used AI
-- Review and evaluate AI suggestions
-- Understand and explain your final code
-
-AI should act like:
-> A junior developer you supervise — not something that builds the project for you.
-
----
-
-## 📘 Project Journal
-
-All planning, work logs, testing notes, and reflections live in **your project journal**.
-
-If it happened during this project, it should be documented there.
-
----
-
-## ✅ Final Submission Expectations
-
-By the end of the project:
-- Your program should run reliably
-- Your technical requirements should be met
-- Your code should be readable and organized
-- Your repository should look **professional**
-
----
-
-# ✨ Final Step: README Update (Very Important)
-
-When your project is complete, you must **rewrite this README**  
-so it reflects **your software**, not the assignment.
-
-Your final README should include:
-
----
-
-## 🔹 Project Title
-
-## 🔹 What This Software Does
-Explain your project in plain language.
-
-## 🔹 Who It’s For
-Describe the user and the problem being solved.
-
-## 🔹 How to Run the Program
-Clear steps so someone else can run your project.
-
-## 🔹 Technical Overview
-Brief description of:
-- Main classes
-- Key data structures
-- Program logic
-
-## 🔹 Class Diagram
-Include or link your final class diagram.
-
-## 🔹 Known Limitations / Future Improvements
-What works well, and what you would improve with more time.
-
----
-
-## 🎯 Final Reminder
-
-This repository represents **you as a developer**.
-
-Take pride in:
-- Your process
-- Your commits
-- Your code
-- Your documentation
-
-Build something real.  
-Build it thoughtfully.  
-Build it well.
+## Known Limitations / Future Improvements
+- No graphical user interface (console-based only)
+- Limited input validation (can crash with invalid input)
+- Does not prevent duplicate attendance entries
+- Future improvements:
+  - Add input validation
+  - Prevent duplicate attendance
+  - Add GUI interface
+  - Track absences and reasons for absence
+  - Support multiple clubs
