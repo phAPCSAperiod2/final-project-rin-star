@@ -1,10 +1,18 @@
 import java.util.Scanner;
 
 /**
- * Runs the menu system for the Club Attendance Tracker.
+ * Runs the menu system for the Club Attendance Tracker application.
+ * Handles all user interaction and connects the Club system together.
  */
 public class Main {
 
+    /**
+     * Entry point of the program.
+     * Provides a menu for adding members, meetings, editing attendance,
+     * and viewing statistics.
+     *
+     * @param args command-line arguments (not used)
+     */
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         Club club = new Club();
@@ -59,27 +67,50 @@ public class Main {
             }
 
             else if (choice == 4) {
+
                 club.displayMeetings();
+
                 System.out.print("Choose meeting #: ");
                 int meetNum = input.nextInt() - 1;
                 input.nextLine();
 
                 if (meetNum >= 0 && meetNum < club.getMeetings().size()) {
+
                     AttendanceRecord meeting =
                         club.getMeetings().get(meetNum);
 
-                    meeting.displayAttendance();
-
-                    System.out.print("Enter name to remove: ");
-                    String name = input.nextLine();
+                    System.out.println("\nEditing Attendance for "
+                        + meeting.getDate());
 
                     for (int i = 0; i < club.getMembers().size(); i++) {
-                        if (club.getMembers().get(i).getName()
-                            .equalsIgnoreCase(name)) {
 
-                            meeting.removeMember(club.getMembers().get(i));
+                        Member currentMember = club.getMembers().get(i);
+
+                        boolean present =
+                            club.wasPresent(i, meetNum);
+
+                        System.out.print(currentMember.getName()
+                            + " currently "
+                            + (present ? "Present" : "Absent")
+                            + ". Change attendance? (y/n): ");
+
+                        String change = input.nextLine();
+
+                        if (change.equalsIgnoreCase("y")) {
+
+                            if (present) {
+                                meeting.removeMember(currentMember);
+                                club.setAttendance(i, meetNum, false);
+                                System.out.println("Marked absent.");
+                            } else {
+                                meeting.markPresent(currentMember);
+                                club.setAttendance(i, meetNum, true);
+                                System.out.println("Marked present.");
+                            }
                         }
                     }
+                } else {
+                    System.out.println("Invalid meeting number.");
                 }
             }
         }
